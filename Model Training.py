@@ -10,15 +10,15 @@ train_datagen= ImageDataGenerator(rescale=1./255, rotation_range=0.2,shear_range
     zoom_range=0.2,width_shift_range=0.2,
     height_shift_range=0.2, validation_split=0.2)
 
-train_data= train_datagen.flow_from_directory(r'C:\Users\VISHU_PERI\Desktop\VISHU\KLH_2nd_Year\2nd_Sem\PFSD\PFSD_PROJECT\Prepared  Data\Train',
+train_data= train_datagen.flow_from_directory(r'copy your path here ...\Prepared  Data\Train',
                                 target_size=(80,80),batch_size=8,class_mode='categorical',subset='training' )
 
-validation_data= train_datagen.flow_from_directory(r'C:\Users\VISHU_PERI\Desktop\VISHU\KLH_2nd_Year\2nd_Sem\PFSD\PFSD_PROJECT\Prepared  Data\Train',
+validation_data= train_datagen.flow_from_directory(r'copy your path here ...\Prepared  Data\Train',
                                 target_size=(80, 80), batch_size=8, class_mode='categorical',subset='validation')
 
 test_datagen = ImageDataGenerator(rescale=1./255)
 
-test_data = test_datagen.flow_from_directory(r'C:\Users\VISHU_PERI\Desktop\VISHU\KLH_2nd_Year\2nd_Sem\PFSD\PFSD_PROJECT\Prepared  Data\Test',
+test_data = test_datagen.flow_from_directory(r'copy your path here ...\Prepared  Data\Test',
                                 target_size=(80,80),batch_size=8,class_mode='categorical')
 
 bmodel = InceptionV3(include_top=False, weights='imagenet', input_tensor=Input(shape=(80,80,3)))
@@ -35,7 +35,7 @@ model.summary()
 
 from tensorflow.keras.callbacks import ModelCheckpoint,EarlyStopping, ReduceLROnPlateau
 
-checkpoint = ModelCheckpoint(r'C:\Users\VISHU_PERI\Desktop\VISHU\KLH_2nd_Year\2nd_Sem\PFSD\PFSD_PROJECT\Model\model.h5',
+checkpoint = ModelCheckpoint(r'copy your path here ...\Model\model.h5',
                             monitor='val_loss',save_best_only=True,verbose=3)
 
 earlystop = EarlyStopping(monitor = 'val_loss', patience=7, verbose= 3, restore_best_weights=True)
